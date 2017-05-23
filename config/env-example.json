@@ -1,0 +1,6 @@
+{
+  "port": 8008,
+  "log": "dev",
+  "dbConnect": "mongodb://localhost/test",
+  "dbAutoIndex": true
+}
