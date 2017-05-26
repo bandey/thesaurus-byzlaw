@@ -56,7 +56,7 @@ test('frontend/components/BptLanguage', (troot) => {
     let dropDown = rendered.find(Dropdown);
     t.ok(dropDown.exists(), 'contain Dropdown');
     t.equal(dropDown.prop('id'), 'languageSelector', 'with correct id');
-    t.ok(dropDown.hasClass('components-BptLanguage-dropDownList'), 'with correct class'); // css-modules
+    t.ok(dropDown.hasClass('components-BptLanguage-dropDownButton'), 'with correct class'); // css-modules
 
     t.ok(calledCounter, 'i18n.t() was called'); // sinon.stub gives more control
 
