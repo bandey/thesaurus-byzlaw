@@ -81,6 +81,7 @@
     "jsdom": "^9.11.0",
     "react-addons-test-utils": "^15.4.2",
     "rimraf": "^2.6.1",
+    "sinon": "^2.3.2",
     "tap-diff": "^0.1.1",
     "tap-dot": "^1.0.5",
     "tap-notify": "^1.0.0",

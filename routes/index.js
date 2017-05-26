@@ -1,4 +1,4 @@
-var debug = require('debug')('routes:undex');
+var debug = require('debug')('routes:index');
 
 var express = require('express');
 var router = express.Router();
@@ -17,18 +17,15 @@ router.get('/', helmet({ // security middleware
   hsts: false, // hsts works only for https
 }), function (req, res, next) {
   debug("get list of sources");
-  // Load initial list of sources
-  BptSource.find().select({ // can be moved into model BptSource as separate function
-    _id: 1,
-    name: 1,
-    lang: 1
-  }).sort({ posit: 1 }).exec(function (err, records) {
-    debug(err);
-    debug(records);
-    if (err) return next(err);
-
-    wireUp(records, req, res, next);
-  });
+  BptSource.getListForLang(req.language) // Load initial list of sources
+    .then(function (records) {
+      debug(records);
+      wireUp(records, req, res, next);
+    })
+    .catch(function (err) {
+      debug(err);
+      next(err);
+    });
 });
 
 module.exports = router;

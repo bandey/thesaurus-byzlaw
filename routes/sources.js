@@ -9,16 +9,15 @@ var BptSource = require('../models/BptSource.js');
 // GET /sources
 router.get('/', function (req, res, next) {
   debug("get list");
-  BptSource.find().select({
-    _id: 1,
-    name: 1,
-    lang: 1
-  }).sort({ posit: 1 }).exec(function (err, records) {
-    debug(err);
-    debug(records);
-    if (err) return next(err);
-    return res.json(records);
-  });
+  BptSource.getListForLang(req.language)
+    .then(function (records) {
+      debug(records);
+      res.json(records);
+    })
+    .catch(function (err) {
+      debug(err);
+      next(err);
+    });
 });
 
 module.exports = router;
