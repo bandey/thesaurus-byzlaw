@@ -29,6 +29,7 @@
     "start": "cross-env NODE_ENV=production node ./bin/www"
   },
   "dependencies": {
+    "array.prototype.find": "^2.0.4",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",

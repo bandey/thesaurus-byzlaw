@@ -50,7 +50,11 @@ test('frontend/components/BptLanguage', (troot) => {
       return s; // it can have more complex logic
     };
 
-    let rendered = shallow(<BptLanguage language={language} i18n={i18n} t={i18nT} />);
+    const onChangeLanguage = (newLang) => {};
+
+    let rendered = shallow(
+      <BptLanguage language={language} i18n={i18n} t={i18nT} onChange={onChangeLanguage} />
+    );
     // console.log(rendered.debug());
 
     let dropDown = rendered.find(Dropdown);
@@ -66,7 +70,7 @@ test('frontend/components/BptLanguage', (troot) => {
   });
 
   troot.test('mounting with props.language differed from i18n.language', (t) => {
-    t.plan(1);
+    t.plan(2);
 
     let language = 'en';
     let languageNew = 'ru';
@@ -82,13 +86,21 @@ test('frontend/components/BptLanguage', (troot) => {
 
     const i18nT = (s) => s;
 
-    let rendered = mount(<BptLanguage language={languageNew} i18n={i18n} t={i18nT} />);
+    const onChangeLanguage = (newLang) => {
+      if (newLang === languageNew) {
+        t.pass('calls this.props.onChange()');
+      }
+    };
+
+    let rendered = mount(
+      <BptLanguage language={languageNew} i18n={i18n} t={i18nT} onChange={onChangeLanguage} />
+    );
     // console.log(rendered.debug());
     // componentDidMount => i18next.changeLanguage
   });
 
   troot.test('changing props.language', (t) => {
-    t.plan(1);
+    t.plan(2);
 
     let language = 'en';
     let languageNew = 'ru';
@@ -104,7 +116,15 @@ test('frontend/components/BptLanguage', (troot) => {
 
     const i18nT = (s) => s;
 
-    let rendered = mount(<BptLanguage language={language} i18n={i18n} t={i18nT} />);
+    const onChangeLanguage = (newLang) => {
+      if (newLang === languageNew) {
+        t.pass('calls this.props.onChange()');
+      }
+    };
+
+    let rendered = mount(
+      <BptLanguage language={language} i18n={i18n} t={i18nT} onChange={onChangeLanguage} />
+    );
     // console.log(rendered.debug());
 
     rendered.setProps({ language: languageNew }); // => componentDidUpdate => i18next.changeLanguage

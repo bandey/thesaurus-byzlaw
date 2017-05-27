@@ -14,6 +14,7 @@ class BptLanguage extends React.PureComponent {
     if ((newLang) && (i18next.language !== newLang) && (i18n.languages.includes(newLang))) {
       console.log('Change lang');
       i18next.changeLanguage(newLang);
+      this.props.onChange(newLang); // to reload list of sources and lexemes in store
     }
   }
 

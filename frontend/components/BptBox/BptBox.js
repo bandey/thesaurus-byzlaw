@@ -6,6 +6,7 @@ import { selectLexeme } from '../../stores/Lexemes/LexemesActions';
 import { selectOptionOfLexeme } from '../../stores/OptionsOfLexeme/OptionsOfLexemeActions';
 import { selectForm } from '../../stores/Forms/FormsActions';
 import { selectSyntagma } from '../../stores/Syntagmas/SyntagmasActions';
+import { reloadSourcesList } from '../../stores/Sources/SourcesActions';
 
 import BptLanguage from '../BptLanguage/BptLanguageTranslation';
 import BptEntity from '../BptEntity/BptEntity';
@@ -33,6 +34,7 @@ class BptBox extends React.PureComponent {
     this.clickOptionOfLexeme = this.clickOptionOfLexeme.bind(this);
     this.clickForm = this.clickForm.bind(this);
     this.clickSyntagma = this.clickSyntagma.bind(this);
+    this.onChangeLanguage = this.onChangeLanguage.bind(this);
   }
 
   // componentDidMount() {
@@ -71,6 +73,10 @@ class BptBox extends React.PureComponent {
     this.props.dispatch(selectSyntagma(syntagma, this.props.params.language));
   }
 
+  onChangeLanguage(language) {
+    this.props.dispatch(reloadSourcesList(language));
+  }
+
   render() {
     const t = this.props.t;
 
@@ -81,7 +87,7 @@ class BptBox extends React.PureComponent {
             <h1 className="h4">{t('Thesaurus Byzantine Law and Acts')}</h1>
           </Col>
           <Col md={3} className={styles.LanguageCol}>
-            <BptLanguage language={this.props.params.language} />
+            <BptLanguage language={this.props.params.language} onChange={this.onChangeLanguage} />
           </Col>
         </Row>
         <BptEntity caption="Source" itemsList={this.props.sourcesList} item={this.props.source} onItemClick={this.clickSource} />
