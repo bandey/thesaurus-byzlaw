@@ -2,6 +2,8 @@ import callGet from '../utils/api-get';
 
 import { loadOptionsOfLexemeList, clearOptionsOfLexemeList } from '../OptionsOfLexeme/OptionsOfLexemeActions';
 
+import arrayFind from 'array.prototype.find'; // polyfill for IE
+
 // Export Constants
 export const LEXEME_LOADLIST_SUCCESS = 'LEXEME_LOADLIST_SUCCESS';
 export const LEXEME_LOADLIST_FAILURE = 'LEXEME_LOADLIST_FAILURE';
@@ -47,5 +49,34 @@ export function clearLexemesList() {
   return dispatch => {
     dispatch(clearLexemesListAlone());
     dispatch(clearOptionsOfLexemeList());
+  }
+};
+
+export function reloadLexemesList(language) {
+  return (dispatch, getState) => {
+    const parentKeyword = getState().keywords.keyword;
+    const optionOfKeyword = getState().optionsOfKeyword.optionOfKeyword;
+    if ((!parentKeyword) || (!optionOfKeyword) || (optionOfKeyword.name !== 'lexemes')) {
+      return; // it is unnecessary to reload lexemes in this case
+    }
+
+    callGet('/' + language + '/lexemes?parent_id=' + (parentKeyword._id || 0))
+      .then(data => {
+        dispatch(loadLexemesListSuccess(data)); // refresh list of lexemes
+
+        const oldLexeme = getState().lexemes.lexeme;
+        if (oldLexeme) { // if any lexeme is currently selected
+          let newLexeme = arrayFind(data, record => record._id === oldLexeme._id);
+          if (newLexeme) {
+            dispatch(selectLexemeAlone(newLexeme)); // refresh selected lexeme
+          } else {
+            dispatch(selectLexeme(null)); // clear selected lexeme and all child lists
+          }
+        }
+      })
+      .catch(err => {
+        dispatch(loadLexemesListFailure());
+        dispatch(selectLexeme(null)); // clear selected lexeme and all child lists
+      });
   }
 };

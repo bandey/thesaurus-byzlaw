@@ -7,6 +7,7 @@ import { selectOptionOfLexeme } from '../../stores/OptionsOfLexeme/OptionsOfLexe
 import { selectForm } from '../../stores/Forms/FormsActions';
 import { selectSyntagma } from '../../stores/Syntagmas/SyntagmasActions';
 import { reloadSourcesList } from '../../stores/Sources/SourcesActions';
+import { reloadLexemesList } from '../../stores/Lexemes/LexemesActions';
 
 import BptLanguage from '../BptLanguage/BptLanguageTranslation';
 import BptEntity from '../BptEntity/BptEntity';
@@ -74,6 +75,7 @@ class BptBox extends React.PureComponent {
   }
 
   onChangeLanguage(language) {
+    this.props.dispatch(reloadLexemesList(language));
     this.props.dispatch(reloadSourcesList(language));
   }
 
