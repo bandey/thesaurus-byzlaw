@@ -23,11 +23,11 @@ class BptEntity extends React.PureComponent {
     if (this.props.item) {
       let panelHeader = (
         <div>
-          <span className="fontLatin">{t(this.props.caption)} : </span>
+          <span className="fontModern">{t(this.props.caption)} : </span>
           <span className={this.props.item.lang}>
             {this.props.item.name}
           </span>
-          <span className="fontLatin">{this.props.item.annex}</span>
+          <span className="fontModern">{this.props.item.annex}</span>
         </div>
       );
 
@@ -39,7 +39,7 @@ class BptEntity extends React.PureComponent {
     };
 
     let listHeader = (
-      <span className="fontLatin">{t(this.props.caption)}</span>
+      <span className="fontModern">{t(this.props.caption)}</span>
     );
 
     let listItems = this.props.itemsList.map(item => (
@@ -47,7 +47,7 @@ class BptEntity extends React.PureComponent {
         <span className={item.lang}>
           {item.name}
         </span>
-        <span className="fontLatin">{item.annex}</span>
+        <span className="fontModern">{item.annex}</span>
       </NavItem>
     ));
 

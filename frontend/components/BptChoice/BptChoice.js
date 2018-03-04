@@ -22,7 +22,7 @@ class BptChoice extends React.PureComponent {
     if (this.props.item) {
       let panelHeader = (
         <div>
-          <span className="fontLatin">{t(this.props.caption)} : </span>
+          <span className="fontModern">{t(this.props.caption)} : </span>
           <span className={this.props.item.lang}>
             {t(this.props.item.name)}
           </span>
@@ -37,7 +37,7 @@ class BptChoice extends React.PureComponent {
     };
 
     let listHeader = (
-      <span className="fontLatin">{t(this.props.caption)}</span>
+      <span className="fontModern">{t(this.props.caption)}</span>
     );
 
     let listItems = this.props.itemsList.map(item => (
