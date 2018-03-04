@@ -5,5 +5,5 @@ if not -%1-==-- (
   set BABEL_DISABLE_CACHE=1
   call ./node_modules/.bin/tape -r babel-register %1
 ) else (
-  echo Usage: test ^<filename^>
+  echo Usage: test1 ^<filename^>
 )

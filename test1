@@ -3,5 +3,5 @@ if [ $1 ]
 then
   BABEL_ENV=test BABEL_DISABLE_CACHE=1 ./node_modules/.bin/tape -r babel-register $1
 else
-  echo "Usage: test <filename>"
+  echo "Usage: test1 <filename>"
 fi
