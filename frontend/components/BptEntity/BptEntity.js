@@ -25,11 +25,11 @@ class BptEntity extends React.PureComponent {
     if (this.props.item) {
       let panelHeader = (
         <div>
-          <TextBlock font="fontModern">{t(this.props.caption) + " : "}</TextBlock>
+          <TextBlock font="modern">{t(this.props.caption) + " : "}</TextBlock>
           <TextBlock font={this.props.item.lang}>
             {this.props.item.name}
           </TextBlock>
-          <TextBlock font="fontModern">{this.props.item.annex}</TextBlock>
+          <TextBlock font="modern">{this.props.item.annex}</TextBlock>
         </div>
       );
 
@@ -42,7 +42,7 @@ class BptEntity extends React.PureComponent {
 
     let listHeader = (
       <div>
-        <TextBlock font="fontModern">{t(this.props.caption)}</TextBlock>
+        <TextBlock font="modern">{t(this.props.caption)}</TextBlock>
       </div>
     );
 
@@ -51,7 +51,7 @@ class BptEntity extends React.PureComponent {
         <TextBlock font={item.lang}>
           {item.name}
         </TextBlock>
-        <TextBlock font="fontModern">{item.annex}</TextBlock>
+        <TextBlock font="modern">{item.annex}</TextBlock>
       </NavItem>
     ));
 

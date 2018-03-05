@@ -6,8 +6,15 @@ class TextBlock extends React.PureComponent {
       return null;
     }
 
+    let fontClass = 'fontModern';
+    if (this.props.font === 'mediaval') {
+      fontClass = 'fontMedieval';
+    } else if (this.props.font !== 'modern') {
+      fontClass = this.props.font;
+    };
+
     return (
-      <span className={this.props.font}>
+      <span className={fontClass}>
         {this.props.children}
       </span>
     );
@@ -20,7 +27,7 @@ TextBlock.propTypes = {
 };
 
 TextBlock.defaultProps = {
-  font: 'fontModern'
+  font: 'modern'
 };
 
 export default TextBlock;
