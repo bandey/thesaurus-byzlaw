@@ -14,9 +14,7 @@ class TextBlock extends React.PureComponent {
     };
 
     return (
-      <span className={fontClass}>
-        {this.props.children}
-      </span>
+      <span className={fontClass}>{this.props.children}</span>
     );
   }
 };

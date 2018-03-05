@@ -29,7 +29,7 @@ BptChoice.__Rewire__('Panel', MockPanel);
 // BptChoice.__ResetDependency__('Panel');
 
 test('frontend/components/BptChoice', (troot) => {
-  troot.test('render content', (t) => {
+  troot.test('.render content', (t) => {
     t.plan(5);
 
     let calledCounter = 0;

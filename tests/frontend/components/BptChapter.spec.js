@@ -16,7 +16,7 @@ import { shallow } from 'enzyme';
 import BptChapter from './../../../frontend/components/BptChapter/BptChapter';
 
 test('frontend/components/BptChapter', (troot) => {
-  troot.test('render content', (t) => {
+  troot.test('.render content', (t) => {
     t.plan(5);
 
     let rendered = shallow(<BptChapter content='Hello' />);

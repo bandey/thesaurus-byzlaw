@@ -34,7 +34,7 @@ import BptLanguage from './../../../frontend/components/BptLanguage/BptLanguage'
 import Dropdown from 'react-bootstrap/lib/Dropdown';
 
 test('frontend/components/BptLanguage', (troot) => {
-  troot.test('render content', (t) => {
+  troot.test('.render content', (t) => {
     t.plan(6);
 
     let language = 'en';
@@ -69,7 +69,7 @@ test('frontend/components/BptLanguage', (troot) => {
     t.equal(glyphIcon.prop('glyph'), 'globe', 'with globe icon');
   });
 
-  troot.test('mounting with props.language differed from i18n.language', (t) => {
+  troot.test('.mounting with props.language differed from i18n.language', (t) => {
     t.plan(2);
 
     let language = 'en';
@@ -99,7 +99,7 @@ test('frontend/components/BptLanguage', (troot) => {
     // componentDidMount => i18next.changeLanguage
   });
 
-  troot.test('changing props.language', (t) => {
+  troot.test('.changing props.language', (t) => {
     t.plan(2);
 
     let language = 'en';
