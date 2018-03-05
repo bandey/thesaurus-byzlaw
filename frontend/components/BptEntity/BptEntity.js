@@ -1,3 +1,5 @@
+import TextBlock from '../TextBlock/TextBlock';
+
 import Panel from 'react-bootstrap/lib/Panel';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -23,11 +25,11 @@ class BptEntity extends React.PureComponent {
     if (this.props.item) {
       let panelHeader = (
         <div>
-          <span className="fontModern">{t(this.props.caption)} : </span>
-          <span className={this.props.item.lang}>
+          <TextBlock font="fontModern">{t(this.props.caption) + " : "}</TextBlock>
+          <TextBlock font={this.props.item.lang}>
             {this.props.item.name}
-          </span>
-          <span className="fontModern">{this.props.item.annex}</span>
+          </TextBlock>
+          <TextBlock font="fontModern">{this.props.item.annex}</TextBlock>
         </div>
       );
 
@@ -39,15 +41,17 @@ class BptEntity extends React.PureComponent {
     };
 
     let listHeader = (
-      <span className="fontModern">{t(this.props.caption)}</span>
+      <div>
+        <TextBlock font="fontModern">{t(this.props.caption)}</TextBlock>
+      </div>
     );
 
     let listItems = this.props.itemsList.map(item => (
       <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
-        <span className={item.lang}>
+        <TextBlock font={item.lang}>
           {item.name}
-        </span>
-        <span className="fontModern">{item.annex}</span>
+        </TextBlock>
+        <TextBlock font="fontModern">{item.annex}</TextBlock>
       </NavItem>
     ));
 

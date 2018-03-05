@@ -1,3 +1,5 @@
+import TextBlock from '../TextBlock/TextBlock';
+
 import Panel from 'react-bootstrap/lib/Panel';
 
 import React from 'react';
@@ -10,9 +12,9 @@ class BptChapter extends React.PureComponent {
 
     return (
       <Panel bsStyle="default">
-        <span className={this.props.cont_lang}>
+        <TextBlock font={this.props.cont_lang}>
           {this.props.content}
-        </span>
+        </TextBlock>
       </Panel>
     );
   }
