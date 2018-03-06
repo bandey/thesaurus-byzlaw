@@ -27,7 +27,7 @@ router.get('/', hpp(), function (req, res, next) {
   BptForm.find(filter).select({
     _id: 1,
     name: 1,
-    lang: 1
+    font: 1
   }).sort({ posit: 1 }).exec(function (err, records) {
     debug(err);
     debug(records);

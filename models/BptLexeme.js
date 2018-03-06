@@ -4,9 +4,8 @@ var BptLexemeSchema = new mongoose.Schema({
   _id: { type: Number, min: 1 },
   parent_id: { type: Number, min: 1 },
   posit: { type: Number, min: 1 },
-  lang: { type: String, required: true, maxlength: 10 },
+  font: { type: String, required: true, maxlength: 20 },
   name: { type: String, required: true, maxlength: 50 },
-  annex: { type: String, maxlength: 150 }, // for old version compatibility
   annex_en: { type: String, maxlength: 150 },
   annex_ru: { type: String, maxlength: 150 },
 });
@@ -33,7 +32,7 @@ BptLexemeSchema.statics.getListOverall = function (parentId, cb) {
 
 /**
  * Method of class: get child records for specified parent, sorted by posit field
- * result records contain fields: _id, lang, name, annex - on specified language
+ * result records contain fields: _id, font, name, annex - on specified language
  * @param {String} lang - language for annex, eg 'en', 'ru'
  * @param {Number} parentId - parent id
  * @return {Promise} - pass array of records ro resolve
@@ -52,7 +51,7 @@ BptLexemeSchema.statics.getListForLang = function (lang, parentId) {
       var results = records.map(function (record) {
         return {
           _id: record._id,
-          lang: record.lang,
+          font: record.font,
           name: record.name,
           annex: record['annex_' + lang]
         };

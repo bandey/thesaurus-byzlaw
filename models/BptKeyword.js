@@ -4,7 +4,7 @@ var BptKeywordSchema = new mongoose.Schema({
   _id: { type: Number, min: 1 },
   parent_id: { type: Number, min: 1 },
   name: { type: String, required: true, maxlength: 50 },
-  lang: { type: String, required: true, maxlength: 10 },
+  font: { type: String, required: true, maxlength: 20 },
   posit: { type: Number, min: 1 }
 });
 

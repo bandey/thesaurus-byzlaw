@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 var BptSourceSchema = new mongoose.Schema({
   _id: { type: Number, min: 1 },
   posit: { type: Number, min: 1 },
-  lang: { type: String, required: true, maxlength: 10 },
-  name: { type: String, maxlength: 30 }, // for old version compatibility
+  font: { type: String, required: true, maxlength: 20 },
   name_en: { type: String, required: true, maxlength: 30 },
   name_ru: { type: String, required: true, maxlength: 30 },
 });
@@ -20,7 +19,7 @@ BptSourceSchema.statics.getListOverall = function (cb) {
 
 /**
  * Method of class: get all records sorted by posit field
- * result records contain fields: _id, lang, name - on specified language
+ * result records contain fields: _id, font, name - on specified language
  * @param {String} lang - language for name, eg 'en', 'ru'
  * @return {Promise} - pass array of records ro resolve
  */
@@ -38,7 +37,7 @@ BptSourceSchema.statics.getListForLang = function (lang) {
       var results = records.map(function (record) {
         return {
           _id: record._id,
-          lang: record.lang,
+          font: record.font,
           name: record['name_' + lang]
         };
       });

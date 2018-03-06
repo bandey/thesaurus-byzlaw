@@ -26,7 +26,7 @@ class BptEntity extends React.PureComponent {
       let panelHeader = (
         <div>
           <TextBlock font="modern">{t(this.props.caption) + " : "}</TextBlock>
-          <TextBlock font={this.props.item.lang}>
+          <TextBlock font={this.props.item.font}>
             {this.props.item.name}
           </TextBlock>
           <TextBlock font="modern">{this.props.item.annex}</TextBlock>
@@ -48,7 +48,7 @@ class BptEntity extends React.PureComponent {
 
     let listItems = this.props.itemsList.map(item => (
       <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
-        <TextBlock font={item.lang}>
+        <TextBlock font={item.font}>
           {item.name}
         </TextBlock>
         <TextBlock font="modern">{item.annex}</TextBlock>
@@ -71,7 +71,7 @@ BptEntity.propTypes = {
   caption: React.PropTypes.string.isRequired,
   itemsList: React.PropTypes.arrayOf(React.PropTypes.object),
   item: React.PropTypes.shape({
-    lang: React.PropTypes.string,
+    font: React.PropTypes.string,
     name: React.PropTypes.string,
     annex: React.PropTypes.string
   }),
