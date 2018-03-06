@@ -4,9 +4,9 @@ var BptChapterSchema = new mongoose.Schema({
   _id: { type: Number, min: 1 },
   posit: { type: Number, min: 1 },
   name: { type: String, required: true, maxlength: 100 },
-  lang: { type: String, required: true, maxlength: 10 },
-  cont_lang: { type: String, required: true, maxlength: 10 },
-  content: { type: String }
+  font: { type: String, required: true, maxlength: 20 },
+  content: { type: String },
+  content_font: { type: String, required: true, maxlength: 20 }
 });
 
 module.exports = mongoose.model('BptChapter', BptChapterSchema, 'bpt_chapter');

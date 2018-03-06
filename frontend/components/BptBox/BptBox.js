@@ -100,7 +100,7 @@ class BptBox extends React.PureComponent {
         <BptChoice caption="Choice" itemsList={this.props.optionsOfLexemeList} item={this.props.optionOfLexeme} onItemClick={this.clickOptionOfLexeme} />
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
         <BptEntity caption="Syntagma" itemsList={this.props.syntagmasList} item={this.props.syntagma} onItemClick={this.clickSyntagma} />
-        <BptChapter content={this.props.contentOfChapter.content} cont_lang={this.props.contentOfChapter.cont_lang} />
+        <BptChapter content={this.props.contentOfChapter.content} font={this.props.contentOfChapter.content_font} />
       </div> 
     );
   }

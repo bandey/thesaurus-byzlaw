@@ -12,7 +12,7 @@ class BptChapter extends React.PureComponent {
 
     return (
       <Panel bsStyle="default">
-        <TextBlock font={this.props.cont_lang}>
+        <TextBlock font={this.props.font}>
           {this.props.content}
         </TextBlock>
       </Panel>
@@ -22,11 +22,11 @@ class BptChapter extends React.PureComponent {
 
 BptChapter.propTypes = {
   content: React.PropTypes.string,
-  cont_lang: React.PropTypes.string
+  font: React.PropTypes.string
 };
 
 BptChapter.defaultProps = {
-  cont_lang: 'fontLatin'
+  font: 'modern'
 };
 
 export default BptChapter;

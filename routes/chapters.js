@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
   BptChapter.find().select({
     _id: 1,
     name: 1,
-    lang: 1
+    font: 1
   }).sort({ posit: 1 }).exec(function (err, records) {
     debug(err);
     debug(records);
@@ -37,7 +37,7 @@ router.get('/of/:link_name/:link_id', function (req, res, next) {
 
   BptLinkChapter.findOne(filter).populate({
     path: 'chapters',
-    select: '_id name lang',
+    select: '_id name font',
     options: { sort: 'posit' }
   }).exec(function (err, linkRecord) {
     debug(err);
@@ -64,7 +64,7 @@ router.get('/:id', function (req, res, next) {
   BptChapter.findOne(filter).select({
     _id: 1,
     content: 1,
-    cont_lang: 1
+    content_font: 1
   }).exec(function (err, record) {
     debug(err);
     debug(record);

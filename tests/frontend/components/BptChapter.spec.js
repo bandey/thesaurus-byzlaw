@@ -19,16 +19,16 @@ test('frontend/components/BptChapter', (troot) => {
   troot.test('.render content', (t) => {
     t.plan(5);
 
-    let rendered = shallow(<BptChapter content='Hello' />);
+    let rendered = shallow(<BptChapter content='Hello' font='medieval' />);
     // console.log(rendered.debug());
 
     let panel = rendered.find('Panel');
     t.ok(panel.exists(), 'contain Panel');
     t.equal(panel.prop('bsStyle'), 'default', 'with correct bsStyle');
 
-    let span = rendered.find('span');
-    t.ok(span.exists(), 'contain span');
-    t.ok(span.hasClass('fontLatin'), 'with correct class');
-    t.equal(span.text(), 'Hello', 'with correct text');
+    let textBlock = rendered.find('TextBlock');
+    t.ok(textBlock.exists(), 'contain TextBlock');
+    t.equal(textBlock.prop('font'), 'medieval', 'with correct font');
+    t.equal(textBlock.children().text(), 'Hello', 'with correct text');
   });
 });
