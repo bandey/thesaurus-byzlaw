@@ -39,8 +39,8 @@ test('frontend/components/BptChoice', (troot) => {
     };
 
     const optionsList = [
-      { _id: 1, name: 'first', lang: 'fontLatin' },
-      { _id: 2, name: 'second', lang: 'fontLatin' }
+      { _id: 1, name: 'first', font: 'modern' },
+      { _id: 2, name: 'second', font: 'modern' }
     ];
     const optionItem = null;
 

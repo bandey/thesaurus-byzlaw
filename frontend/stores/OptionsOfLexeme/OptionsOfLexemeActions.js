@@ -11,8 +11,8 @@ export function loadOptionsOfLexemeList(parent_id, language) {
   return { 
     type: OPTION_OF_LEXEME_LOADLIST_SUCCESS, 
     optionsOfLexemeList: [
-      { _id: 1, name: 'wordforms', lang: 'fontModern', keyword_id: parent_id },
-      { _id: 2, name: 'syntagmas', lang: 'fontModern', keyword_id: parent_id }
+      { _id: 1, name: 'wordforms', font: 'modern', keyword_id: parent_id },
+      { _id: 2, name: 'syntagmas', font: 'modern', keyword_id: parent_id }
     ]
   }
 };

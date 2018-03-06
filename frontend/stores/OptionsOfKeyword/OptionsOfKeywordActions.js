@@ -11,8 +11,8 @@ export function loadOptionsOfKeywordList(parent_id, language) {
   return { 
     type: OPTION_OF_KEYWORD_LOADLIST_SUCCESS,
     optionsOfKeywordList: [
-      { _id: 1, name: 'lexemes', lang: 'fontModern', keyword_id: parent_id },
-      { _id: 2, name: 'chapters', lang: 'fontModern', keyword_id: parent_id }
+      { _id: 1, name: 'lexemes', font: 'modern', keyword_id: parent_id },
+      { _id: 2, name: 'chapters', font: 'modern', keyword_id: parent_id }
     ] 
   }
 };

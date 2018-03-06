@@ -25,7 +25,7 @@ class BptChoice extends React.PureComponent {
       let panelHeader = (
         <div>
           <TextBlock font="modern">{t(this.props.caption) + " : "}</TextBlock>
-          <TextBlock font={this.props.item.lang}>
+          <TextBlock font={this.props.item.font}>
             {t(this.props.item.name)}
           </TextBlock>
         </div>
@@ -46,7 +46,7 @@ class BptChoice extends React.PureComponent {
 
     let listItems = this.props.itemsList.map(item => (
       <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
-        <TextBlock font={item.lang}>
+        <TextBlock font={item.font}>
           {t(item.name)}
         </TextBlock>
       </NavItem>
@@ -68,7 +68,7 @@ BptChoice.propTypes = {
   caption: React.PropTypes.string.isRequired,
   itemsList: React.PropTypes.arrayOf(React.PropTypes.object),
   item: React.PropTypes.shape({
-    lang: React.PropTypes.string,
+    font: React.PropTypes.string,
     name: React.PropTypes.string,
   }),
   onItemClick: React.PropTypes.func,
