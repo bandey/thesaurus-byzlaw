@@ -52,7 +52,7 @@ test('frontend/components/TextBlock', (troot) => {
   troot.test('.render content with medieval font', (t) => {
     t.plan(3);
 
-    let rendered = shallow(<TextBlock font='mediaval'>Hello</TextBlock>);
+    let rendered = shallow(<TextBlock font='medieval'>Hello</TextBlock>);
     // console.log(rendered.debug());
 
     let span = rendered.find('span');

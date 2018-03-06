@@ -7,7 +7,7 @@ class TextBlock extends React.PureComponent {
     }
 
     let fontClass = 'fontModern';
-    if (this.props.font === 'mediaval') {
+    if (this.props.font === 'medieval') {
       fontClass = 'fontMedieval';
     } else if (this.props.font !== 'modern') {
       fontClass = this.props.font;
