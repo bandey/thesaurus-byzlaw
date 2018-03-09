@@ -11,12 +11,12 @@ if (!process.env.npm_package_name) { // was launched not from 'npm run'
 import arrayFind from 'array.prototype.find'; // polyfill for IE
 
 var data = [
-  { _id: 1, lang: 'fontLat', name: 'greek' },
-  { _id: 2, lang: 'fontLat', name: 'latin' },
-  { _id: 3, lang: 'fontLat', name: 'slavic' },
+  { _id: 1, font: 'modern', name: 'greek' },
+  { _id: 2, font: 'modern', name: 'latin' },
+  { _id: 3, font: 'modern', name: 'slavic' },
 ];
 
-var oldSource = { _id: 2, lang: 'fontLat', name: 'latin' };
+var oldSource = { _id: 2, font: 'modern', name: 'latin' };
 
 test('Array.find()', function (t) {
   t.plan(1);

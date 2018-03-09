@@ -64,12 +64,12 @@ test('frontend/components/TextBlock', (troot) => {
   troot.test('.render content with other font', (t) => {
     t.plan(3);
 
-    let rendered = shallow(<TextBlock font='fontLat'>Hello</TextBlock>);
+    let rendered = shallow(<TextBlock font='mixed'>Hello</TextBlock>);
     // console.log(rendered.debug());
 
     let span = rendered.find('span');
     t.ok(span.exists(), 'contain span');
-    t.ok(span.hasClass('fontLat'), 'with correct class');
+    t.ok(span.hasClass('fontModern'), 'with correct class');
     t.equal(span.text(), 'Hello', 'with correct text');
   });
 });

@@ -49,12 +49,12 @@ test('.model validations', { skip: false }, function (t) {
     t.ok(err, 'return err on empty input');
   });
 
-  exemplar = new BptSource({ name_en: 'latin', font: 'fontLat', posit: 1 });
+  exemplar = new BptSource({ name_en: 'latin', font: 'modern', posit: 1 });
   exemplar.validate(function (err) {
     t.ok(err, 'return err on incomplete input');
   });
 
-  exemplar = new BptSource({ name_en: 'latin', name_ru: 'латинский', font: 'fontLat', posit: 1 });
+  exemplar = new BptSource({ name_en: 'latin', name_ru: 'латинский', font: 'modern', posit: 1 });
   exemplar.validate(function (err) {
     t.error(err, 'return no err on normal input');
   });
@@ -76,16 +76,16 @@ test('.getListForLang', { skip: false }, function (t) {
     t.plan(4);
 
     var dataRaw = [ // emulates raw data from DB
-      { _id: 1, posit: 1, font: 'fontLat', name_en: 'latin', name_ru: 'латинский' },
-      { _id: 2, posit: 2, font: 'fontLat', name_en: 'slavic', name_ru: 'славянский' },
+      { _id: 1, posit: 1, font: 'modern', name_en: 'latin', name_ru: 'латинский' },
+      { _id: 2, posit: 2, font: 'modern', name_en: 'slavic', name_ru: 'славянский' },
     ];
     var dataEn = [ // data filtered for en language
-      { _id: 1, font: 'fontLat', name: 'latin' },
-      { _id: 2, font: 'fontLat', name: 'slavic' },
+      { _id: 1, font: 'modern', name: 'latin' },
+      { _id: 2, font: 'modern', name: 'slavic' },
     ];
     var dataRu = [ // data filtered for ru language
-      { _id: 1, font: 'fontLat', name: 'латинский' },
-      { _id: 2, font: 'fontLat', name: 'славянский' },
+      { _id: 1, font: 'modern', name: 'латинский' },
+      { _id: 2, font: 'modern', name: 'славянский' },
     ];
 
     sinon.stub(BptSource, 'getListOverall').callsFake(function (cb) {
