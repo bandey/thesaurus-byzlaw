@@ -23,13 +23,16 @@ class BptEntity extends React.PureComponent {
     const t = this.props.t;
 
     if (this.props.item) {
+      let item = this.props.item
+
+      let annexBlock = item.annex ? 
+          (<TextBlock font="modern">{" = " + item.annex}</TextBlock>) : null;
+
       let panelHeader = (
         <div>
           <TextBlock font="modern">{t(this.props.caption) + " : "}</TextBlock>
-          <TextBlock font={this.props.item.font}>
-            {this.props.item.name}
-          </TextBlock>
-          <TextBlock font="modern">{this.props.item.annex}</TextBlock>
+          <TextBlock font={item.font}>{item.name}</TextBlock>
+          {annexBlock}
         </div>
       );
 
@@ -46,14 +49,17 @@ class BptEntity extends React.PureComponent {
       </div>
     );
 
-    let listItems = this.props.itemsList.map(item => (
-      <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
-        <TextBlock font={item.font}>
-          {item.name}
-        </TextBlock>
-        <TextBlock font="modern">{item.annex}</TextBlock>
-      </NavItem>
-    ));
+    let listItems = this.props.itemsList.map(item => {
+      let annexBlock = item.annex ? 
+          (<TextBlock font="modern">{" = " + item.annex}</TextBlock>) : null;
+
+      return (
+        <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
+          <TextBlock font={item.font}>{item.name}</TextBlock>
+          {annexBlock}
+        </NavItem>
+      );
+    });
 
     return (
       <div>
