@@ -103,38 +103,19 @@ app.use(function (req, res, next) {
   return next(err);
 });
 
-// Error handlers
-
-// development error handler
-// will print stacktrace
-if (conf.get('env') === 'development') {
-  app.use(function (err, req, res, next) {
-    console.error(err);
-    res.status(err.status || 500);
-
-    if (req.accepts('html')) {
-      return res.render('error', {
-        message: err.message,
-        error: err
-      });
-    } else {
-      return res.json({
-        message: err.message
-      });
-    }
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
+// Error handler
 app.use(function (err, req, res, next) {
-  console.error(err);
+  if ((err.status != 404) || (conf.get('env') !== 'production')) {
+    // in production dont pollute log with 404 stacktraces
+    console.error(err);
+  }
+
   res.status(err.status || 500);
 
   if (req.accepts('html')) {
     return res.render('error', {
       message: err.message,
-      error: {}
+      error: conf.get('env') === 'development' ? err : {}
     });
   } else {
     return res.json({
