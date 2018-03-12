@@ -15,6 +15,7 @@ const CopyPlugin = require('copy-webpack-plugin'); // to copy files from src to 
 const autoprefixer = require('autoprefixer'); // used by postcss-loader
 
 var filesToCopy = [ // what to copy by copy-webpack-plugin
+  { from: './robots.txt' }, // robots simply to /public
   { from: './icons' }, // icons simply to /public
   { from: './i18n/locales', to: 'locales/' },
   { from: '../node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'bootstrap/css/' },
