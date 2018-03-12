@@ -4,13 +4,13 @@ var conf = require('../config/config.js');
 
 // DEBUG env variable used not by config.js, but directly by debug module
 // Linux:
-// DEBUG=bin:www node ./bin/www
+// DEBUG=bin:thesaurus node ./bin/thesaurus-byzlaw
 // Windows:
-// set DEBUG=bin:www
-// node ./bin/www
+// set DEBUG=bin:thesaurus
+// node ./bin/thesaurus-byzlaw
 // set DEBUG=
 
-var debug = require('debug')('bin:www');
+var debug = require('debug')('bin:thesaurus');
 debug('Starting');
 
 var app = require('../serv/app.js');
