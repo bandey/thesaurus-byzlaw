@@ -55,8 +55,10 @@ const wireUp = function (records, req, res, next) {
 
       storeRedux.dispatch(loadSourcesListSuccess(records)); // set initial state
 
+      let i18n = req.i18n;
+
       let content = ReactDOMServer.renderToString(
-        <I18nextProvider i18n={req.i18n}>
+        <I18nextProvider i18n={i18n}>
           <Provider store={storeRedux}>
             <RouterContext {...props} />
           </Provider>
@@ -67,6 +69,7 @@ const wireUp = function (records, req, res, next) {
         title: req.t('Thesaurus'),
         language: req.language,
         content: content,
+        i18nResource: JSON.stringify(i18n.getResourceBundle(req.language, i18n.options.defaultNS)),
         bootupData: JSON.stringify(records)
       });
 

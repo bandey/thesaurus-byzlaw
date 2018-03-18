@@ -19,8 +19,6 @@ import contentOfChapterReducer from './stores/ContentOfChapter/ContentOfChapterR
 import BptBox from './components/BptBox/BptBox';
 
 import i18n from './i18n/i18n';
-i18n.setupLanguage();
-
 import { I18nextProvider } from 'react-i18next';
 
 // import React from 'react'; // imports implicitly by webpack.ProvidePlugin
@@ -76,10 +74,21 @@ if (bootupData) {
   bootupData.parentNode.removeChild(bootupData);
 }
 
-// Not optimal! Try to load i18n resource file at server and save/load it like bootupData
-let onceLoaded = function(loaded) {
-  // console.log(loaded);
-  i18n.i18next.off('loaded', onceLoaded); // only once
+// Load i18next initial resource from html-element 'script'
+let i18nResource = null;
+let resourceNode = document.getElementById('i18nResource');
+if (resourceNode) {
+  let textContent = resourceNode.textContent;
+  if (textContent !== undefined) {
+    i18nResource = JSON.parse(textContent);
+  }
+  resourceNode.parentNode.removeChild(resourceNode);
+}
+
+// Mount React DOM after i18next was initialized
+let onceInitialized = function (options) {
+  // console.log(options);
+  i18n.i18next.off('initialized', onceInitialized); // only once
 
   ReactDOM.render(
     <I18nextProvider i18n={i18n.i18next}>
@@ -93,4 +102,6 @@ let onceLoaded = function(loaded) {
   );
 };
 
-i18n.i18next.on('loaded', onceLoaded);
+i18n.i18next.on('initialized', onceInitialized);
+
+i18n.setupLanguage(i18nResource); // detect lang, call init, add resource

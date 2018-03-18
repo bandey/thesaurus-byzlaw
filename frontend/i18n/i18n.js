@@ -34,7 +34,7 @@ i18next.on('languageChanged', function (newLang) {
   }
 });
 
-const setupLanguage = function () {
+const setupLanguage = function (resource) {
   let lng = document.documentElement.lang;
   console.log('i18n: setupLanguage ' + lng);
   if ((lng) && (languages.includes(lng))) {
@@ -43,6 +43,10 @@ const setupLanguage = function () {
 
   // Init i18next
   i18next.use(i18nXHR).init(config);
+
+  if (resource) {
+    i18next.addResourceBundle(config.lng, config.defaultNS, resource);
+  }
 }
 
 export default { 

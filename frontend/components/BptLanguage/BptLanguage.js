@@ -12,19 +12,19 @@ import { LinkContainer } from 'react-router-bootstrap';
 class BptLanguage extends React.PureComponent {
   _selectLanguage(i18next, newLang) {
     if ((newLang) && (i18next.language !== newLang) && (i18n.languages.includes(newLang))) {
-      console.log('Change lang');
+      console.log('BptLanguage: Change lang');
       i18next.changeLanguage(newLang);
       this.props.onChange(newLang); // to reload list of sources and lexemes in store
     }
   }
 
   componentDidMount() {
-    console.log('DidMount: ' + this.props.language);
+    console.log('BptLanguage: DidMount ' + this.props.language);
     this._selectLanguage(this.props.i18n, this.props.language); // this.props.i18n is i18next
   }
 
   componentDidUpdate(prevProps) {
-    console.log('DidUpdate: ' + this.props.i18n.language + '->' + this.props.language);
+    console.log('BptLanguage: DidUpdate ' + this.props.i18n.language + '->' + this.props.language);
     this._selectLanguage(this.props.i18n, this.props.language); // this.props.i18n is i18next
   }
 
