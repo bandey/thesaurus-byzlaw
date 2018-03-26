@@ -51,6 +51,7 @@ module.exports = {
         loader: 'babel-loader', // WP2
         options: { // WP2
           babelrc: false,
+          plugins: ['array-includes'], // for IE9: replace includes by indexOf
           presets: ['es2015', 'react'] // 'stage-0'
         }
       },

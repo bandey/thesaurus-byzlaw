@@ -2,6 +2,7 @@
 
 import 'es6-promise/auto';  // Promise polyfill - ge IE9
 import 'whatwg-fetch';      // fetch polyfill
+import 'es6-object-assign/auto'; // Object.assign polyfill
 
 import './main.css'; // global styles
 
