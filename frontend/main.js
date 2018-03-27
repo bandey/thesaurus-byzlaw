@@ -69,7 +69,7 @@ let history = syncHistoryWithStore(browserHistory, storeRedux);
 let bootupData = document.getElementById('bootupData');
 if (bootupData) {
   let bootupDataContent = bootupData.textContent;
-  if (bootupDataContent !== undefined) {
+  if (bootupDataContent) {
     storeRedux.dispatch(loadSourcesListSuccess(JSON.parse(bootupDataContent)));
   }
   bootupData.parentNode.removeChild(bootupData);
@@ -80,7 +80,7 @@ let i18nResource = null;
 let resourceNode = document.getElementById('i18nResource');
 if (resourceNode) {
   let textContent = resourceNode.textContent;
-  if (textContent !== undefined) {
+  if (textContent) {
     i18nResource = JSON.parse(textContent);
   }
   resourceNode.parentNode.removeChild(resourceNode);

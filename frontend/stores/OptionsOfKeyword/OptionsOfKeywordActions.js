@@ -25,9 +25,9 @@ export function selectOptionOfKeyword(optionOfKeyword, language) {
   return dispatch => {
     dispatch(selectOptionOfKeywordAlone(optionOfKeyword));
     if (optionOfKeyword) {
-      if (optionOfKeyword._id == 2) {
+      if (optionOfKeyword._id === 2) {
         dispatch(loadChaptersList(optionOfKeyword.keyword_id, language));
-      } else if (optionOfKeyword._id == 1) {
+      } else if (optionOfKeyword._id === 1) {
         dispatch(loadLexemesList(optionOfKeyword.keyword_id, language));
       } else {
         dispatch(clearChaptersList());

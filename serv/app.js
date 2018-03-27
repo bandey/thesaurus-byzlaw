@@ -76,8 +76,8 @@ app.use(i18nMiddleware.handle(i18next, {
   removeLngFromUrl: true, // remove language chunk from path for next middlewares
 }), function (req, res, next) { // my middleware after i18next
   debug('Lang: ' + req.language + ' ' + req.i18nextLookupName);
-  if (req.language != 'dev') { // allowed language detected
-    if (req.i18nextLookupName == 'path') { // taken from path => ok
+  if (req.language !== 'dev') { // allowed language detected
+    if (req.i18nextLookupName === 'path') { // taken from path => ok
       return next();
     } else { // taken from header => redirect
       return res.redirect(307, '/' + req.language + req.originalUrl);
@@ -105,7 +105,7 @@ app.use(function (req, res, next) {
 
 // Error handler
 app.use(function (err, req, res, next) {
-  if ((err.status != 404) || (conf.get('env') !== 'production')) {
+  if ((err.status !== 404) || (conf.get('env') !== 'production')) {
     // in production dont pollute log with 404 stacktraces
     console.error(err);
   }

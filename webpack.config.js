@@ -21,7 +21,7 @@ var filesToCopy = [ // what to copy by copy-webpack-plugin
   { from: '../node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'bootstrap/css/' },
   { from: '../node_modules/bootstrap/dist/fonts', to: 'bootstrap/fonts/' },      
 ];
-if (NODE_ENV != 'production') {
+if (NODE_ENV !== 'production') {
   filesToCopy.push({ from: '../node_modules/bootstrap/dist/css/bootstrap.min.css.map', to: 'bootstrap/css/' });
 }
 
@@ -108,7 +108,7 @@ module.exports = {
   devtool: NODE_ENV == 'production' ? false : 'source-map'
 };
 
-if (NODE_ENV == 'production') {
+if (NODE_ENV === 'production') {
   module.exports.plugins.push( // add plugins
     new webpack.optimize.UglifyJsPlugin({ // js minification
       beautify: false,      // max minification

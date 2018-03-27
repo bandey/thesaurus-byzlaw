@@ -25,9 +25,9 @@ export function selectOptionOfLexeme(optionOfLexeme, language) {
   return dispatch => {
     dispatch(selectOptionOfLexemeAlone(optionOfLexeme));
     if (optionOfLexeme) {
-      if (optionOfLexeme._id == 1) {
+      if (optionOfLexeme._id === 1) {
         dispatch(loadFormsList(optionOfLexeme.keyword_id, language));
-      } else if (optionOfLexeme._id == 2) {
+      } else if (optionOfLexeme._id === 2) {
         dispatch(loadSyntagmasList(optionOfLexeme.keyword_id, language));
       } else {
         dispatch(clearFormsList());

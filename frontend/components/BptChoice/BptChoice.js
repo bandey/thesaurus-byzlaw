@@ -15,7 +15,7 @@ class BptChoice extends React.PureComponent {
   }
 
   render() {
-    if (this.props.itemsList.length < 1) {
+    if (!this.props.itemsList.length) {
       return null;
     }
 
