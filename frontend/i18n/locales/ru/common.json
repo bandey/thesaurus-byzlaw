@@ -9,8 +9,9 @@
   "Lexeme": "Лексема",
   "Wordform": "Словоформа",
   "Syntagma": "Синтагма",
+  "Example": "Пример",  
   "lexemes": "лексемы",
   "chapters": "разделы",
   "wordforms": "словоформы",
-  "syntagmas": "синтагмы"  
+  "syntagmas": "синтагмы"
 }

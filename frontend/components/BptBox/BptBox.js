@@ -6,6 +6,7 @@ import { selectLexeme } from '../../stores/Lexemes/LexemesActions';
 import { selectOptionOfLexeme } from '../../stores/OptionsOfLexeme/OptionsOfLexemeActions';
 import { selectForm } from '../../stores/Forms/FormsActions';
 import { selectSyntagma } from '../../stores/Syntagmas/SyntagmasActions';
+import { selectExample } from '../../stores/Examples/ExamplesActions';
 import { reloadSourcesList } from '../../stores/Sources/SourcesActions';
 import { reloadLexemesList } from '../../stores/Lexemes/LexemesActions';
 
@@ -35,6 +36,7 @@ class BptBox extends React.PureComponent {
     this.clickOptionOfLexeme = this.clickOptionOfLexeme.bind(this);
     this.clickForm = this.clickForm.bind(this);
     this.clickSyntagma = this.clickSyntagma.bind(this);
+    this.clickExample = this.clickExample.bind(this);
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
   }
 
@@ -74,6 +76,10 @@ class BptBox extends React.PureComponent {
     this.props.dispatch(selectSyntagma(syntagma, this.props.params.language));
   }
 
+  clickExample(example) {
+    this.props.dispatch(selectExample(example, this.props.params.language));
+  }
+
   onChangeLanguage(language) {
     this.props.dispatch(reloadLexemesList(language));
     this.props.dispatch(reloadSourcesList(language));
@@ -100,6 +106,7 @@ class BptBox extends React.PureComponent {
         <BptChoice caption="Choice" itemsList={this.props.optionsOfLexemeList} item={this.props.optionOfLexeme} onItemClick={this.clickOptionOfLexeme} />
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
         <BptEntity caption="Syntagma" itemsList={this.props.syntagmasList} item={this.props.syntagma} onItemClick={this.clickSyntagma} />
+        <BptEntity caption="Example" itemsList={this.props.examplesList} item={this.props.example} onItemClick={this.clickExample} />
         <BptChapter content={this.props.contentOfChapter.content} font={this.props.contentOfChapter.content_font} />
       </div> 
     );
@@ -125,6 +132,8 @@ let filterStore = function (state) {
     form: state.forms.form,
     syntagmasList: state.syntagmas.syntagmasList,
     syntagma: state.syntagmas.syntagma,
+    examplesList: state.examples.examplesList,
+    example: state.examples.example,
     contentOfChapter: state.contentOfChapter.contentOfChapter
   }
 };

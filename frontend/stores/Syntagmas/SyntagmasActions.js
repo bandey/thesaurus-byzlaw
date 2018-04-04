@@ -1,6 +1,6 @@
 import callGet from '../utils/api-get';
 
-// import { loadNextsList, clearNextsList } from '../Nexts/NextsActions';
+import { loadExamplesList, clearExamplesList } from '../Examples/ExamplesActions';
 
 // Export Constants
 export const SYNTAGMA_LOADLIST_SUCCESS = 'SYNTAGMA_LOADLIST_SUCCESS';
@@ -32,9 +32,9 @@ export function selectSyntagma(syntagma, language) {
   return dispatch => {
     dispatch(selectSyntagmaAlone(syntagma));
     if (syntagma) {
-      // dispatch(loadNextsList(syntagma._id, language));
+      dispatch(loadExamplesList(syntagma._id, language));
     } else {
-      // dispatch(clearNextsList());
+      dispatch(clearExamplesList());
     }
   }
 };
@@ -46,6 +46,6 @@ export function clearSyntagmasListAlone() {
 export function clearSyntagmasList() {
   return dispatch => {
     dispatch(clearSyntagmasListAlone());
-    // dispatch(clearNextsList());
+    dispatch(clearExamplesList());
   }
 };

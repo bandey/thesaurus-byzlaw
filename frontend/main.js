@@ -15,6 +15,7 @@ import lexemesReducer from './stores/Lexemes/LexemesReducer';
 import optionsOfLexemeReducer from './stores/OptionsOfLexeme/OptionsOfLexemeReducer';
 import formsReducer from './stores/Forms/FormsReducer';
 import syntagmasReducer from './stores/Syntagmas/SyntagmasReducer';
+import examplesReducer from './stores/Examples/ExamplesReducer';
 import contentOfChapterReducer from './stores/ContentOfChapter/ContentOfChapterReducer';
 
 import BptBox from './components/BptBox/BptBox';
@@ -51,6 +52,7 @@ let storeRedux = createStore(
     optionsOfLexeme: optionsOfLexemeReducer,
     forms: formsReducer,
     syntagmas: syntagmasReducer,
+    examples: examplesReducer,
     contentOfChapter: contentOfChapterReducer,
     routing: routerReducer
   }),

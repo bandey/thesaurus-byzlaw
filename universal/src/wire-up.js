@@ -7,6 +7,7 @@ import lexemesReducer from '../frontend/stores/Lexemes/LexemesReducer';
 import optionsOfLexemeReducer from '../frontend/stores/OptionsOfLexeme/OptionsOfLexemeReducer';
 import formsReducer from '../frontend/stores/Forms/FormsReducer';
 import syntagmasReducer from '../frontend/stores/Syntagmas/SyntagmasReducer';
+import examplesReducer from '../frontend/stores/Examples/ExamplesReducer';
 import contentOfChapterReducer from '../frontend/stores/ContentOfChapter/ContentOfChapterReducer';
 
 import BptBox from '../frontend/components/BptBox/BptBox';
@@ -49,6 +50,7 @@ const wireUp = function (records, req, res, next) {
           optionsOfLexeme: optionsOfLexemeReducer,
           forms: formsReducer,
           syntagmas: syntagmasReducer,
+          examples: examplesReducer,
           contentOfChapter: contentOfChapterReducer,
         })
       );
