@@ -95,6 +95,7 @@ app.use('/chapters', require('../routes/chapters'));
 app.use('/lexemes', require('../routes/lexemes'));
 app.use('/forms', require('../routes/forms'));
 app.use('/syntagmas', require('../routes/syntagmas'));
+app.use('/examples', require('../routes/examples'));
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
