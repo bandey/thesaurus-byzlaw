@@ -55,8 +55,9 @@ export function clearLexemesList() {
 export function reloadLexemesList(language) {
   return (dispatch, getState) => {
     const parentKeyword = getState().keywords.keyword;
-    const optionOfKeyword = getState().optionsOfKeyword.optionOfKeyword;
-    if ((!parentKeyword) || (!optionOfKeyword) || (optionOfKeyword.name !== 'lexemes')) {
+    // const optionOfKeyword = getState().optionsOfKeyword.optionOfKeyword;
+    // if ((!parentKeyword) || (!optionOfKeyword) || (optionOfKeyword.name !== 'lexemes')) {
+    if (!parentKeyword) {
       return; // it is unnecessary to reload lexemes in this case
     }
 

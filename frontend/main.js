@@ -9,14 +9,14 @@ import './main.css'; // global styles
 import sourcesReducer from './stores/Sources/SourcesReducer';
 import { loadSourcesListSuccess } from './stores/Sources/SourcesActions';
 import keywordsReducer from './stores/Keywords/KeywordsReducer';
-import optionsOfKeywordReducer from './stores/OptionsOfKeyword/OptionsOfKeywordReducer';
-import chaptersReducer from './stores/Chapters/ChaptersReducer';
+// import optionsOfKeywordReducer from './stores/OptionsOfKeyword/OptionsOfKeywordReducer';
+// import chaptersReducer from './stores/Chapters/ChaptersReducer';
 import lexemesReducer from './stores/Lexemes/LexemesReducer';
 import optionsOfLexemeReducer from './stores/OptionsOfLexeme/OptionsOfLexemeReducer';
 import formsReducer from './stores/Forms/FormsReducer';
 import syntagmasReducer from './stores/Syntagmas/SyntagmasReducer';
 import examplesReducer from './stores/Examples/ExamplesReducer';
-import contentOfChapterReducer from './stores/ContentOfChapter/ContentOfChapterReducer';
+// import contentOfChapterReducer from './stores/ContentOfChapter/ContentOfChapterReducer';
 
 import BptBox from './components/BptBox/BptBox';
 
@@ -46,14 +46,14 @@ let storeRedux = createStore(
   combineReducers({
     sources: sourcesReducer,
     keywords: keywordsReducer,
-    optionsOfKeyword: optionsOfKeywordReducer,
-    chapters: chaptersReducer,
+    // optionsOfKeyword: optionsOfKeywordReducer,
+    // chapters: chaptersReducer,
     lexemes: lexemesReducer,
     optionsOfLexeme: optionsOfLexemeReducer,
     forms: formsReducer,
     syntagmas: syntagmasReducer,
     examples: examplesReducer,
-    contentOfChapter: contentOfChapterReducer,
+    // contentOfChapter: contentOfChapterReducer,
     routing: routerReducer
   }),
   applyMiddleware(

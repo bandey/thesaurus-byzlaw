@@ -1,6 +1,7 @@
 import callGet from '../utils/api-get';
 
-import { loadOptionsOfKeywordList, clearOptionsOfKeywordList } from '../OptionsOfKeyword/OptionsOfKeywordActions';
+// import { loadOptionsOfKeywordList, clearOptionsOfKeywordList } from '../OptionsOfKeyword/OptionsOfKeywordActions';
+import { loadLexemesList, clearLexemesList } from '../Lexemes/LexemesActions';
 
 // Export Constants
 export const KEYWORD_LOADLIST_SUCCESS = 'KEYWORD_LOADLIST_SUCCESS';
@@ -32,9 +33,11 @@ export function selectKeyword(keyword, language) {
   return dispatch => {
     dispatch(selectKeywordAlone(keyword));
     if (keyword) {
-      dispatch(loadOptionsOfKeywordList(keyword._id, language));
+      // dispatch(loadOptionsOfKeywordList(keyword._id, language));
+      dispatch(loadLexemesList(keyword._id, language));
     } else {
-      dispatch(clearOptionsOfKeywordList());
+      // dispatch(clearOptionsOfKeywordList());
+      dispatch(clearLexemesList());
     }
   }
 };
@@ -46,6 +49,7 @@ export function clearKeywordsListAlone() {
 export function clearKeywordsList() {
   return dispatch => {
     dispatch(clearKeywordsListAlone());
-    dispatch(clearOptionsOfKeywordList());
+    // dispatch(clearOptionsOfKeywordList());
+    dispatch(clearLexemesList());
   }
 };
