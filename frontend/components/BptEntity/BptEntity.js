@@ -26,7 +26,7 @@ class BptEntity extends React.PureComponent {
       let item = this.props.item
 
       let annexBlock = item.annex ? 
-          (<TextBlock font="modern">{" = " + item.annex}</TextBlock>) : null;
+          (<TextBlock font="modern">{" — " + item.annex}</TextBlock>) : null;
 
       let panelHeader = (
         <div>
@@ -51,7 +51,7 @@ class BptEntity extends React.PureComponent {
 
     let listItems = this.props.itemsList.map(item => {
       let annexBlock = item.annex ? 
-          (<TextBlock font="modern">{" = " + item.annex}</TextBlock>) : null;
+          (<TextBlock font="modern">{" — " + item.annex}</TextBlock>) : null;
 
       return (
         <NavItem key={item._id} href='/' onClick={this.generateClickHandler(item)}>
