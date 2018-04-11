@@ -1,6 +1,6 @@
 import callGet from '../utils/api-get';
 
-import { loadOptionsOfLexemeList, clearOptionsOfLexemeList } from '../OptionsOfLexeme/OptionsOfLexemeActions';
+import { loadMeaningsList, clearMeaningsList } from '../Meanings/MeaningsActions';
 
 import arrayFind from 'array.prototype.find'; // polyfill for IE
 
@@ -34,9 +34,9 @@ export function selectLexeme(lexeme, language) {
   return dispatch => {
     dispatch(selectLexemeAlone(lexeme));
     if (lexeme) {
-      dispatch(loadOptionsOfLexemeList(lexeme._id, language));
+      dispatch(loadMeaningsList(lexeme._id, language));
     } else {
-      dispatch(clearOptionsOfLexemeList());
+      dispatch(clearMeaningsList());
     }
   }
 };
@@ -48,7 +48,7 @@ export function clearLexemesListAlone() {
 export function clearLexemesList() {
   return dispatch => {
     dispatch(clearLexemesListAlone());
-    dispatch(clearOptionsOfLexemeList());
+    dispatch(clearMeaningsList());
   }
 };
 

@@ -12,6 +12,7 @@ import keywordsReducer from './stores/Keywords/KeywordsReducer';
 // import optionsOfKeywordReducer from './stores/OptionsOfKeyword/OptionsOfKeywordReducer';
 // import chaptersReducer from './stores/Chapters/ChaptersReducer';
 import lexemesReducer from './stores/Lexemes/LexemesReducer';
+import meaningsReducer from './stores/Meanings/MeaningsReducer';
 import optionsOfLexemeReducer from './stores/OptionsOfLexeme/OptionsOfLexemeReducer';
 import formsReducer from './stores/Forms/FormsReducer';
 import syntagmasReducer from './stores/Syntagmas/SyntagmasReducer';
@@ -49,6 +50,7 @@ let storeRedux = createStore(
     // optionsOfKeyword: optionsOfKeywordReducer,
     // chapters: chaptersReducer,
     lexemes: lexemesReducer,
+    meanings: meaningsReducer,
     optionsOfLexeme: optionsOfLexemeReducer,
     forms: formsReducer,
     syntagmas: syntagmasReducer,

@@ -4,6 +4,7 @@ import keywordsReducer from '../frontend/stores/Keywords/KeywordsReducer';
 import optionsOfKeywordReducer from '../frontend/stores/OptionsOfKeyword/OptionsOfKeywordReducer';
 import chaptersReducer from '../frontend/stores/Chapters/ChaptersReducer';
 import lexemesReducer from '../frontend/stores/Lexemes/LexemesReducer';
+import meaningsReducer from '../frontend/stores/Meanings/MeaningsReducer';
 import optionsOfLexemeReducer from '../frontend/stores/OptionsOfLexeme/OptionsOfLexemeReducer';
 import formsReducer from '../frontend/stores/Forms/FormsReducer';
 import syntagmasReducer from '../frontend/stores/Syntagmas/SyntagmasReducer';
@@ -47,6 +48,7 @@ const wireUp = function (records, req, res, next) {
           optionsOfKeyword: optionsOfKeywordReducer,
           chapters: chaptersReducer,
           lexemes: lexemesReducer,
+          meanings: meaningsReducer,
           optionsOfLexeme: optionsOfLexemeReducer,
           forms: formsReducer,
           syntagmas: syntagmasReducer,
