@@ -1,6 +1,6 @@
 export default function (url) {
   console.log('fetch ' + url);
-  return fetch(url, { cache: 'no-store' })
+  return fetch(url, { cache: 'default' })
     .then(response => {
       // console.log(response.status); // 200
       if (response.status !== 200) {
