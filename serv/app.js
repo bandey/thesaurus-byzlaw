@@ -93,6 +93,7 @@ app.use('/sources', require('../routes/sources'));
 app.use('/keywords', require('../routes/keywords'));
 app.use('/chapters', require('../routes/chapters'));
 app.use('/lexemes', require('../routes/lexemes'));
+app.use('/meanings', require('../routes/meanings'));
 app.use('/forms', require('../routes/forms'));
 app.use('/syntagmas', require('../routes/syntagmas'));
 app.use('/examples', require('../routes/examples'));
