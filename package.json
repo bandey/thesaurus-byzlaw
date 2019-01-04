@@ -12,7 +12,7 @@
     "thesaurus"
   ],
   "private": true,
-  "author": "Dmitrii Kondratev <origbandey@gmail.ru>",
+  "author": "Dmitrii Kondratev <origbandey@gmail.com>",
   "license": "UNLICENSED",
   "main": "serv/app.js",
   "scripts": {
