@@ -26,7 +26,10 @@ mongoose.connection.once('open', function () {
   debug('Mongo connection OK');
 });
 // options.server.socketOptions = options.replset.socketOptions = { keepAlive: 120 };
-mongoose.connect(conf.get('dbConnect'), { autoIndex: conf.get('dbAutoIndex') });
+mongoose.connect(conf.get('dbConnect'), {
+  useNewUrlParser: true,
+  autoIndex: conf.get('dbAutoIndex')
+});
 
 var app = express();
 
