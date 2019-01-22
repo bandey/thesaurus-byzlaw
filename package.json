@@ -13,7 +13,7 @@
   ],
   "private": true,
   "author": "Dmitrii Kondratev <origbandey@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "serv/app.js",
   "scripts": {
     "test": "cross-env BABEL_ENV=test BABEL_DISABLE_CACHE=1 tape -r babel-register tests/**/*.js | tap-dot",
