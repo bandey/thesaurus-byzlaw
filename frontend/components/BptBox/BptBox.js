@@ -16,6 +16,7 @@ import BptLanguage from '../BptLanguage/BptLanguageTranslation';
 import BptEntity from '../BptEntity/BptEntity';
 import BptChoice from '../BptChoice/BptChoiceTranslation';
 // import BptChapter from '../BptChapter/BptChapter';
+import InfoBoard from '../InfoBoard/InfoBoard';
 
 import styles from './styles.css';
 
@@ -114,6 +115,7 @@ class BptBox extends React.PureComponent {
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
         <BptEntity caption="Syntagma" itemsList={this.props.syntagmasList} item={this.props.syntagma} onItemClick={this.clickSyntagma} />
         <BptEntity caption="Example" itemsList={this.props.examplesList} item={this.props.example} onItemClick={this.clickExample} />
+        <InfoBoard />
       </div> 
     );
         // <BptChoice caption="Choice" itemsList={this.props.optionsOfKeywordList} item={this.props.optionOfKeyword} onItemClick={this.clickOptionOfKeyword} />
