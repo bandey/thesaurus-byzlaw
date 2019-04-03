@@ -101,13 +101,13 @@ class BptBox extends React.PureComponent {
       <div className="bptBox">
         <Row className={styles.headerRow}>
           <Col md={9} componentClass='header'>
-            <h1 className="h4">{t('Thesaurus Byzantine Law and Acts')}</h1>
+            <h1 className="h4">{t('$Thesaurus title')}</h1>
           </Col>
           <Col md={3} className={styles.LanguageCol}>
             <BptLanguage language={this.props.params.language} onChange={this.onChangeLanguage} />
           </Col>
         </Row>
-        <BptEntity caption="Source" itemsList={this.props.sourcesList} item={this.props.source} onItemClick={this.clickSource} />
+        <BptEntity caption="$Source" itemsList={this.props.sourcesList} item={this.props.source} onItemClick={this.clickSource} />
         <BptEntity caption="Keyword" itemsList={this.props.keywordsList} item={this.props.keyword} onItemClick={this.clickKeyword} />
         <BptEntity caption="Lexeme" itemsList={this.props.lexemesList} item={this.props.lexeme} onItemClick={this.clickLexeme} />
         <BptEntity caption="Meaning" itemsList={this.props.meaningsList} item={this.props.meaning} onItemClick={this.clickMeaning} />

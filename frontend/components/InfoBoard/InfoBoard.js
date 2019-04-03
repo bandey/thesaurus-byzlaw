@@ -28,7 +28,7 @@ class InfoBoard extends React.PureComponent {
     return (
       <Modal show={this.state.show} onHide={this.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{t('Thesaurus Byzantine Law and Acts')}</Modal.Title>
+          <Modal.Title>{t('$Thesaurus title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{textAlign:'center'}}>
           <p><b>{t('Demoversion')}</b></p>
@@ -39,9 +39,7 @@ class InfoBoard extends React.PureComponent {
           <p>{t('$Moscow Year')}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="info" onClick={this.handleClose}>
-            Продолжить
-          </Button>
+          <Button bsStyle="info" onClick={this.handleClose}>{t('Continue')}</Button>
         </Modal.Footer>
       </Modal>
     );

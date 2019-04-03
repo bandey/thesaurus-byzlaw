@@ -34,7 +34,7 @@ class BptLanguage extends React.PureComponent {
     return (
       <Dropdown id="languageSelector" className={styles.dropDownButton}>
         <Dropdown.Toggle bsStyle="info" block>
-          <Glyphicon glyph="globe" />&nbsp; {t('Language')} &nbsp;
+          <Glyphicon glyph="globe" />&nbsp; {t('$Language')} &nbsp;
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.dropDownList}>
           <LinkContainer to="/en">
