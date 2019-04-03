@@ -1,4 +1,5 @@
 import Modal from 'react-bootstrap/lib/Modal';
+import Button from 'react-bootstrap/lib/Button';
 
 import React from 'react';
 import { translate } from 'react-i18next';
@@ -29,7 +30,19 @@ class InfoBoard extends React.PureComponent {
         <Modal.Header closeButton>
           <Modal.Title>{t('Thesaurus Byzantine Law and Acts')}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{t('Thesaurus Byzantine Law and Acts')}</Modal.Body>
+        <Modal.Body style={{textAlign:'center'}}>
+          <p><b>{t('Demoversion')}</b></p>
+          <p>{t('$Research project')}</p>
+          <p><a href={t('$Site url')} target="_blank">{t('$Site short url')}</a></p>
+          <p>{t('$Leader and Developer')}</p>
+          <p>{t('$RAS-IWH')}</p>
+          <p>{t('$Moscow Year')}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button bsStyle="info" onClick={this.handleClose}>
+            Продолжить
+          </Button>
+        </Modal.Footer>
       </Modal>
     );
   }
