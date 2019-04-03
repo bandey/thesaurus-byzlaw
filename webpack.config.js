@@ -72,13 +72,21 @@ module.exports = {
           ]
         })
       },
-      { // import from .png and others images and fonts
+      { // import fonts
         include: path.resolve(__dirname, 'frontend'), // path mask
-        test: /\.(png|jpg|svg|woff)$/, // file mask
+        test: /\.woff$/, // file mask
+        loader: 'file-loader', // simply copy file with path to output dir
+        options: { // WP2
+          name: '[path][name].[ext]',
+        }
+      },
+      { // import from .png and others images
+        include: path.resolve(__dirname, 'frontend'), // path mask
+        test: /\.(png|jpg|svg)$/, // file mask
         // loader: 'file-loader', // simply copy file with path to output dir
         loader: 'url-loader', // WP2
         options: { // WP2
-          name: '[path][name].[ext]',
+          name: 'images/[hash].[ext]',
           limit: 4096 // if file is smaller then limit, then includes as data:url, otherwise file-loader
         }
       },

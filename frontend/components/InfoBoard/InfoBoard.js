@@ -1,6 +1,8 @@
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 
+import emblem from './emblem.png';
+
 import React from 'react';
 import { translate } from 'react-i18next';
 
@@ -31,6 +33,14 @@ class InfoBoard extends React.PureComponent {
           <Modal.Title>{t('$Thesaurus title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{textAlign:'center'}}>
+          <img 
+            src={emblem} 
+            alt={t('Double-headed eagle')}
+            width="140px"
+            height="175px"
+            className="hidden-xs"
+            style={{float:'left'}}
+          />
           <p><b>{t('Demoversion')}</b></p>
           <p>{t('$Research project')}</p>
           <p><a href={t('$Site url')} target="_blank">{t('$Site short url')}</a></p>

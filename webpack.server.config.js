@@ -26,6 +26,22 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      { // import fonts
+        test: /\.woff$/, // file mask
+        loader: 'file-loader', // simply copy file with path to output dir
+        options: { // WP2
+          name: '[path][name].[ext]',
+        }
+      },
+      { // import from .png and others images
+        test: /\.(png|jpg|svg)$/, // file mask
+        // loader: 'file-loader', // simply copy file with path to output dir
+        loader: 'url-loader', // WP2
+        options: { // WP2
+          name: 'images/[hash].[ext]',
+          limit: 4096 // if file is smaller then limit, then includes as data:url, otherwise file-loader
+        }
+      },
     ],
   },
 
