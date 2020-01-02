@@ -2,6 +2,12 @@ var convict = require('convict');
 
 // Define a schema 
 var conf = convict({
+  configFile: {
+    doc: 'Path to additional config json file',
+    env: 'CONF_FILE',
+    format: String,
+    default: '',
+  },
   env: {
     doc: "Applicaton environment.",
     format: ["production", "development"],
@@ -12,18 +18,20 @@ var conf = convict({
     doc: "Port to bind.",
     format: "port",
     default: 8080,
-    env: "PORT"
+    env: "SERV_PORT"
   },
   log: {
     doc: "HTTP logger mode.",
     format: ["common", "dev", "none"],
-    default: "none",
+    default: "dev",
+    env: 'LOG_MODE',
     arg: "log"
   },
   dbConnect: {
     doc: "Configuration string for MongoDB connection.",
     format: String,
     default: "mongodb://localhost/test",
+    env: 'DB_CONNECT',
     arg: "db-connect"
   },
   dbAutoIndex: { // check indexes presence every run
@@ -46,9 +54,9 @@ var conf = convict({
   }
 });
 
-// Load environment dependent configuration 
-var env = conf.get('env');
-conf.loadFile('./config/' + env + '.json');
+if (conf.get('configFile')) {
+  conf.loadFile(conf.get('configFile'));
+}
  
 // Perform validation 
 conf.validate({allowed: 'strict'});
