@@ -1,3 +1,5 @@
+const conf = require('../../config/config.js');
+
 import { loadSourcesListSuccess } from '../frontend/stores/Sources/SourcesActions';
 import sourcesReducer from '../frontend/stores/Sources/SourcesReducer';
 import keywordsReducer from '../frontend/stores/Keywords/KeywordsReducer';
@@ -74,7 +76,8 @@ const wireUp = function (records, req, res, next) {
         language: req.language,
         content: content,
         i18nResource: JSON.stringify(i18n.getResourceBundle(req.language, i18n.options.defaultNS)),
-        bootupData: JSON.stringify(records)
+        bootupData: JSON.stringify(records),
+        googleSiteTag: conf.get('googleSiteTag'),
       });
 
     } else {

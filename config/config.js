@@ -51,7 +51,13 @@ var conf = convict({
     format: Boolean,
     default: false,
     arg: "i18n-debug"
-  }
+  },
+  googleSiteTag: {
+    doc: 'Global site tag for Google Analytics',
+    format: String,
+    default: '',
+    env: 'GOOGLE_SITE_TAG',
+  },
 });
 
 if (conf.get('configFile')) {
