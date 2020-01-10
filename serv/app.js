@@ -28,7 +28,8 @@ mongoose.connection.once('open', function () {
 // options.server.socketOptions = options.replset.socketOptions = { keepAlive: 120 };
 mongoose.connect(conf.get('dbConnect'), {
   useNewUrlParser: true,
-  autoIndex: conf.get('dbAutoIndex')
+  autoIndex: conf.get('dbAutoIndex'),
+  useUnifiedTopology: true,
 });
 
 var app = express();
