@@ -24,6 +24,10 @@ var configHelmet = {
         "https://www.googletagmanager.com/",
         "https://www.google-analytics.com/",
       ],
+      imgSrc: [
+        "'self'",
+        "https://www.google-analytics.com/",
+      ],
     },
     reportOnly: false,
     setAllHeaders: false,
