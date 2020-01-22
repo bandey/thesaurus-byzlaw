@@ -32,15 +32,6 @@ mongoose.connect(conf.get('dbConnect'), {
   useUnifiedTopology: true,
 });
 
-var app = express();
-
-// Security setup
-app.disable('x-powered-by');
-
-// View engine setup
-app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'ejs');
-
 // i18n setup
 i18next.use(i18nMiddleware.LanguageDetector).use(i18nFSBackend).init({
   debug: conf.get('i18nDebug'),
@@ -64,6 +55,11 @@ i18next.use(i18nMiddleware.LanguageDetector).use(i18nFSBackend).init({
   }
   debug('i18next init OK');
 });
+
+var app = express();
+
+// Security setup
+app.disable('x-powered-by');
 
 // Middlewares
 if (conf.get('log') !== 'none') {
@@ -90,6 +86,10 @@ app.use(i18nMiddleware.handle(i18next, {
     return res.redirect(307, '/en' + req.originalUrl);
   }
 });
+
+// View engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
 
 // Routers
 app.use('/', require('../routes/index'));
