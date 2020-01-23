@@ -58,6 +58,8 @@ i18next.use(i18nMiddleware.LanguageDetector).use(i18nFSBackend).init({
 
 var app = express();
 
+app.set('trust proxy', conf.get('serverViaProxy'));
+
 // Security setup
 app.disable('x-powered-by');
 

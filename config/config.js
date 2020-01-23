@@ -14,6 +14,12 @@ var conf = convict({
     default: "development",
     env: "NODE_ENV"
   },
+  serverViaProxy: {
+    doc: 'Set true if server works through proxy',
+    env: 'SERV_VIA_PROXY',
+    format: Boolean,
+    default: false,
+  },
   port: {
     doc: "Port to bind.",
     format: "port",
