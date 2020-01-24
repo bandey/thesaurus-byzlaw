@@ -1,5 +1,6 @@
 import callGet from '../utils/api-get';
 
+import { showAdditionsBoard, hideAdditionsBoard } from '../Ambience/AmbienceActions';
 import { loadKeywordsList, clearKeywordsList } from '../Keywords/KeywordsActions';
 
 import arrayFind from 'array.prototype.find'; // polyfill for IE
@@ -34,8 +35,10 @@ export function selectSource(source, language) {
     dispatch(selectSourceAlone(source));
     if (source) {
       dispatch(loadKeywordsList(source._id, language));
+      dispatch(hideAdditionsBoard());
     } else {
       dispatch(clearKeywordsList());
+      dispatch(showAdditionsBoard());
     }
   }
 };

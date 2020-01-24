@@ -1,5 +1,6 @@
 const conf = require('../../config/config.js');
 
+import ambienceReducer from '../frontend/stores/Ambience/AmbienceReducer';
 import { loadSourcesListSuccess } from '../frontend/stores/Sources/SourcesActions';
 import sourcesReducer from '../frontend/stores/Sources/SourcesReducer';
 import keywordsReducer from '../frontend/stores/Keywords/KeywordsReducer';
@@ -45,6 +46,7 @@ const wireUp = function (records, req, res, next) {
 
       let storeRedux = createStore(
         combineReducers({
+          ambience: ambienceReducer,
           sources: sourcesReducer,
           keywords: keywordsReducer,
           optionsOfKeyword: optionsOfKeywordReducer,

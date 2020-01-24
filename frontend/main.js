@@ -6,6 +6,7 @@ import 'es6-object-assign/auto'; // Object.assign polyfill
 
 import './main.css'; // global styles
 
+import ambienceReducer from './stores/Ambience/AmbienceReducer';
 import sourcesReducer from './stores/Sources/SourcesReducer';
 import { loadSourcesListSuccess } from './stores/Sources/SourcesActions';
 import keywordsReducer from './stores/Keywords/KeywordsReducer';
@@ -45,6 +46,7 @@ let routerMiddleware = makeRouterMiddleware(browserHistory);
 // { bptData: Object, routing: Object }
 let storeRedux = createStore(
   combineReducers({
+    ambience: ambienceReducer,
     sources: sourcesReducer,
     keywords: keywordsReducer,
     // optionsOfKeyword: optionsOfKeywordReducer,

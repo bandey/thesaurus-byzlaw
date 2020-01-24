@@ -17,6 +17,7 @@ import BptEntity from '../BptEntity/BptEntity';
 import BptChoice from '../BptChoice/BptChoiceTranslation';
 // import BptChapter from '../BptChapter/BptChapter';
 import InfoBoard from '../InfoBoard/InfoBoard';
+import AdditionsBoard from '../AdditionsBoard/AdditionsBoard';
 
 import styles from './styles.css';
 
@@ -115,6 +116,7 @@ class BptBox extends React.PureComponent {
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
         <BptEntity caption="Syntagma" itemsList={this.props.syntagmasList} item={this.props.syntagma} onItemClick={this.clickSyntagma} />
         <BptEntity caption="Example" itemsList={this.props.examplesList} item={this.props.example} onItemClick={this.clickExample} />
+        <AdditionsBoard visible={this.props.additionsBoardVisible} />
         <InfoBoard />
       </div> 
     );
@@ -127,6 +129,7 @@ class BptBox extends React.PureComponent {
 let filterStore = function (state) {
   // state: { sources: Object, keywords: Object, routing: Object }
   return { 
+    additionsBoardVisible: state.ambience.additionsBoardVisible,
     sourcesList: state.sources.sourcesList,
     source: state.sources.source,
     keywordsList: state.keywords.keywordsList,
