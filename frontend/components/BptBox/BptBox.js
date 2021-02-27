@@ -15,6 +15,7 @@ import { reloadMeaningsList } from '../../stores/Meanings/MeaningsActions';
 import BptLanguage from '../BptLanguage/BptLanguageTranslation';
 import BptEntity from '../BptEntity/BptEntity';
 import BptChoice from '../BptChoice/BptChoiceTranslation';
+import BptMeanings from '../BptMeanings/BptMeanings';
 // import BptChapter from '../BptChapter/BptChapter';
 import InfoBoard from '../InfoBoard/InfoBoard';
 import AdditionsBoard from '../AdditionsBoard/AdditionsBoard';
@@ -111,6 +112,7 @@ class BptBox extends React.PureComponent {
         <BptEntity caption="$Source" itemsList={this.props.sourcesList} item={this.props.source} onItemClick={this.clickSource} />
         <BptEntity caption="Keyword" itemsList={this.props.keywordsList} item={this.props.keyword} onItemClick={this.clickKeyword} />
         <BptEntity caption="Lexeme" itemsList={this.props.lexemesList} item={this.props.lexeme} onItemClick={this.clickLexeme} />
+        <BptMeanings itemsList={this.props.meaningsList} />
         <BptEntity caption="Meaning" itemsList={this.props.meaningsList} item={this.props.meaning} onItemClick={this.clickMeaning} />
         <BptChoice caption="Choice" itemsList={this.props.optionsOfLexemeList} item={this.props.optionOfLexeme} onItemClick={this.clickOptionOfLexeme} />
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
