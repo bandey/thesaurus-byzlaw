@@ -42,7 +42,15 @@ router.get('/', hpp(), function (req, res, next) {
         debug(err);
         if (err) return next(err);
         debug(records);
-        return res.json(records);
+
+        // filter duplicating wordforms from result array
+        var distinctForms = records.filter(function (record, pos) {
+          return pos === records.findIndex(function (item) {
+            return (item.name === record.name) && (item.font === record.font);
+          }); 
+        });
+
+        return res.json(distinctForms);
       });
     });
   } else { // select all records in collection
