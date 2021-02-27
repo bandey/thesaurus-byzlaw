@@ -48,10 +48,12 @@ BptMeaningSchema.statics.getListForLang = function (lang, parentId) {
       }
 
       var results = records.map(function (record) {
+        var name = record['name_' + lang];
+        if (name) name = name.replace(/\^/g, '');
         return {
           _id: record._id,
           font: record.font,
-          name: record['name_' + lang]
+          name: name
         };
       });
 
