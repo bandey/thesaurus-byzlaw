@@ -3,14 +3,14 @@ import { selectKeyword } from '../../stores/Keywords/KeywordsActions';
 // import { selectOptionOfKeyword } from '../../stores/OptionsOfKeyword/OptionsOfKeywordActions';
 // import { selectChapter } from '../../stores/Chapters/ChaptersActions';
 import { selectLexeme } from '../../stores/Lexemes/LexemesActions';
-import { selectMeaning } from '../../stores/Meanings/MeaningsActions';
+// import { selectMeaning } from '../../stores/Meanings/MeaningsActions';
 import { selectOptionOfLexeme } from '../../stores/OptionsOfLexeme/OptionsOfLexemeActions';
 import { selectForm } from '../../stores/Forms/FormsActions';
 import { selectSyntagma } from '../../stores/Syntagmas/SyntagmasActions';
 import { selectExample } from '../../stores/Examples/ExamplesActions';
 import { reloadSourcesList } from '../../stores/Sources/SourcesActions';
 import { reloadLexemesList } from '../../stores/Lexemes/LexemesActions';
-import { reloadMeaningsList } from '../../stores/Meanings/MeaningsActions';
+// import { reloadMeaningsList } from '../../stores/Meanings/MeaningsActions';
 
 import BptLanguage from '../BptLanguage/BptLanguageTranslation';
 import BptEntity from '../BptEntity/BptEntity';
@@ -38,7 +38,7 @@ class BptBox extends React.PureComponent {
     // this.clickOptionOfKeyword = this.clickOptionOfKeyword.bind(this);
     // this.clickChapter = this.clickChapter.bind(this);
     this.clickLexeme = this.clickLexeme.bind(this);
-    this.clickMeaning = this.clickMeaning.bind(this);
+    // this.clickMeaning = this.clickMeaning.bind(this);
     this.clickOptionOfLexeme = this.clickOptionOfLexeme.bind(this);
     this.clickForm = this.clickForm.bind(this);
     this.clickSyntagma = this.clickSyntagma.bind(this);
@@ -70,9 +70,9 @@ class BptBox extends React.PureComponent {
     this.props.dispatch(selectLexeme(lexeme, this.props.params.language));
   }
 
-  clickMeaning(meaning) {
-    this.props.dispatch(selectMeaning(meaning, this.props.params.language));
-  }
+  // clickMeaning(meaning) {
+  //   this.props.dispatch(selectMeaning(meaning, this.props.params.language));
+  // }
 
   clickOptionOfLexeme(option) {
     this.props.dispatch(selectOptionOfLexeme(option, this.props.params.language));
@@ -91,7 +91,7 @@ class BptBox extends React.PureComponent {
   }
 
   onChangeLanguage(language) {
-    this.props.dispatch(reloadMeaningsList(language));
+    // this.props.dispatch(reloadMeaningsList(language));
     this.props.dispatch(reloadLexemesList(language));
     this.props.dispatch(reloadSourcesList(language));
   }
@@ -113,7 +113,6 @@ class BptBox extends React.PureComponent {
         <BptEntity caption="Keyword" itemsList={this.props.keywordsList} item={this.props.keyword} onItemClick={this.clickKeyword} />
         <BptEntity caption="Lexeme" itemsList={this.props.lexemesList} item={this.props.lexeme} onItemClick={this.clickLexeme} />
         <BptMeanings itemsList={this.props.meaningsList} />
-        <BptEntity caption="Meaning" itemsList={this.props.meaningsList} item={this.props.meaning} onItemClick={this.clickMeaning} />
         <BptChoice caption="Choice" itemsList={this.props.optionsOfLexemeList} item={this.props.optionOfLexeme} onItemClick={this.clickOptionOfLexeme} />
         <BptEntity caption="Wordform" itemsList={this.props.formsList} item={this.props.form} onItemClick={this.clickForm} />
         <BptEntity caption="Syntagma" itemsList={this.props.syntagmasList} item={this.props.syntagma} onItemClick={this.clickSyntagma} />
